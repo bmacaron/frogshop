@@ -1,0 +1,21 @@
+#yml파일은 계층을 띄어쓰기(스페이스)2칸으로 한다. tab사용XX
+server:
+  port: 8090
+spring:
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/frogshop
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        # show_sql: true
+        format_sql: true
+
+logging.level:
+  org.hibernate.SQL: debug
+  org.hibernate.type: trace
