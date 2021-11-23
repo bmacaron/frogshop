@@ -5,22 +5,25 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.frogshop.domain.Member;
 
 @Repository
+@RequiredArgsConstructor
 public class MemberRepository {
 
-	
-	@PersistenceContext
-	private EntityManager em;
-	
+	//@PersistenceContext
+	//@Autowired
+	private final EntityManager em;
+
 	public void save(Member member) {
 		em.persist(member);
 	}
 	
-	public Member find(Long id) {
+	public Member findOne(Long id) {
 		return em.find(Member.class, id);
 	}
 	
